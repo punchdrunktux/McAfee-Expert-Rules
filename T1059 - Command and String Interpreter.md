@@ -36,6 +36,39 @@ Rule {
 2. MS Office application launches PowerShell process.
 3. PowerShell attempts to download remote data.
 
+## 2.  MS Office Launching Encoded PowerShell
+
+**Description:**  VBA-enabled MS Office files may attempt to launch base64-encoded content by PowerShell to avoid AV detections and obscure intent.
+
+**MITRE ATT&CK Technique:** T1059.001
+
+```jsx
+Rule {
+	Initiator {
+		Match PROCESS {
+			Include OBJECT_NAME {-v "winword.exe"}
+			Include OBJECT_NAME {-v "excel.exe"}
+			Include OBJECT_NAME {-v "powerpoint.exe"}
+		}
+	}
+	Target {
+		Match PROCESS {
+			Include -nt_access "CREATE"
+			Include OBJECT_NAME {-v "powershell.exe"}
+			Include PROCESS_CMD_LINE {-v "*-e*"}
+		}
+	}
+}
+```
+
+**Trigger(s):**
+
+1. MS Office application launched
+2. MS Office application launches PowerShell process.
+3. PowerShell attempts to run encoded commands.
+
+
+
 **TEST Files:**
 
 [T1059.001-MS Word.docm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.001-MS_Word.docm)
@@ -84,32 +117,13 @@ Public Sub AutoOpen()
     objWshell1.Exec (psString)
     Sleep (3000)
 
+    '6 - VBA Launching PowerShell Encoded Command
+    psString = "powershell.exe -EncodedCommand ZQBjAGgAbwAgACIASABpACAAVABoAGUAcgBlACEAIgA="
+    MsgBox ("3 - VBA Launching PowerShell Encoded Command" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.001" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+    Sleep (5000)
+
 End Sub
-```
-
-## 2.  MS Office Launching Encoded PowerShell
-
-**Description:**  VBA-enabled MS Office files may attempt to launch base64-encoded content by PowerShell to avoid AV detections and obscure intent.
-
-**MITRE ATT&CK Technique:** T1059.001
-
-```jsx
-Rule {
-	Initiator {
-		Match PROCESS {
-			Include OBJECT_NAME {-v "winword.exe"}
-			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpoint.exe"}
-		}
-	}
-	Target {
-		Match PROCESS {
-			Include -nt_access "CREATE"
-			Include OBJECT_NAME {-v "powershell.exe"}
-			Include PROCESS_CMD_LINE {-v "*-e*"}
-		}
-	}
-}
 ```
 
 ## 3. MS Office Launching Other Scripts
