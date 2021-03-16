@@ -179,3 +179,6 @@ End Sub
 
 #### TEST Files - Covers #3**
 
+
+[T1059.007-T1059.009-MS_Word.docm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.007-T1059.009-MS_Word.docm)
+[T1059.007-T1059.009-MS_Excel.xlsm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.007-T1059.009-MS_Excel.xlsm)
