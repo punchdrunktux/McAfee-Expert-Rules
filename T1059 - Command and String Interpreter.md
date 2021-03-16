@@ -19,7 +19,6 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
-			Include -nt_access "CREATE"
 			Include OBJECT_NAME {-v "powershell.exe"}
 			Include PROCESS_CMD_LINE {-v "*DownloadString*"}
 			Include PROCESS_CMD_LINE {-v "*DownloadFile*"}
@@ -53,7 +52,6 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
-			Include -nt_access "CREATE"
 			Include OBJECT_NAME {-v "powershell.exe"}
 			Include PROCESS_CMD_LINE {-v "*-e*"}
 		}
@@ -163,13 +161,12 @@ Rule {
 Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
  
 Public Sub AutoOpen()
-
     Dim objWshell1 As Object
     Set objWshell1 = CreateObject("WScript.Shell")
     Dim psString As String
     
     '1 - VBA Launching PowerShell EncodedCommand
-    psString = "powershell.exe -ExecutionPolicy Bypass -NoExit -EncodedCommand JABTAGUAcgB2AGUAcgAgAD0AIABSAGUAYQBkAC0ASABvAHMAdAAgAC0AUAByAG8AbQBwAHQAIAAnAEUAbgBjAG8AZABlAGQAIABjAG8AbQBtAGEAbgBkACAAcgB1AG4ALgAgACAAUAByAGUAcwBzACAARQBuAHQAZQByACcA"
+    psString = "powershell.exe -EncodedCommand JABTAGUAcgB2AGUAcgAgAD0AIABSAGUAYQBkAC0ASABvAHMAdAAgAC0AUAByAG8AbQBwAHQAIAAnAEUAbgBjAG8AZABlAGQAIABjAG8AbQBtAGEAbgBkACAAcgB1AG4ALgAgACAAUAByAGUAcwBzACAARQBuAHQAZQByACcA"
     MsgBox ("1 - VBA Launching PowerShell EncodedCommand" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
     objWshell1.Exec (psString)
     MsgBox ("Complete.")
