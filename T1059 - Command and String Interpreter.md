@@ -179,7 +179,7 @@ End Sub
 
 #### TEST Files - Covers #3**
 
-[T1059.007-T1059.009-MS_Excel.xlsm](Test Files/T1059.007-T1059.009-MS_Excel.xlsm)
+[T1059.007-T1059.009-MS_Excel.xlsm](Test%20Files/T1059.007-T1059.009-MS_Excel.xlsm)
 
-[T1059.007-T1059.009-MS_Word.docm](Test Files/T1059.007-T1059.009-MS_Word.docm)
+[T1059.007-T1059.009-MS_Word.docm](Test%20Files/T1059.007-T1059.009-MS_Word.docm)
 
