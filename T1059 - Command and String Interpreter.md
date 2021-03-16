@@ -167,19 +167,29 @@ Rule {
 **Test VBA Code:**
 
 ```jsx
-Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
- 
-Public Sub AutoOpen()
+ Public Sub AutoOpen()
     Dim objWshell1 As Object
     Set objWshell1 = CreateObject("WScript.Shell")
     Dim psString As String
     
-    '1 - VBA Launching PowerShell EncodedCommand
-    psString = "powershell.exe -EncodedCommand JABTAGUAcgB2AGUAcgAgAD0AIABSAGUAYQBkAC0ASABvAHMAdAAgAC0AUAByAG8AbQBwAHQAIAAnAEUAbgBjAG8AZABlAGQAIABjAG8AbQBtAGEAbgBkACAAcgB1AG4ALgAgACAAUAByAGUAcwBzACAARQBuAHQAZQByACcA"
-    MsgBox ("1 - VBA Launching PowerShell EncodedCommand" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    '1 - VBA Launching VBScript via cscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed VBS via CSCRIPT"") >c:\\windows\\temp\\test.vbs "
     objWshell1.Exec (psString)
-    MsgBox ("Complete.")
+    psString = "cscript.exe c:\\windows\\temp\\test.vbs"
+        
+    MsgBox ("1 - VBA Launching VBScript via cscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+
+     '2 - VBA Launching VBScript via wscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed VBS via WSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "wscript.exe c:\\windows\\temp\\test.vbs"
+    MsgBox ("2 - VBA Launching VBScript via wscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+        
 End Sub
+
+
 
 ```
 
