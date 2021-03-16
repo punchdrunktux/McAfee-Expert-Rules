@@ -69,13 +69,13 @@ Rule {
 
 
 
-**TEST Files:**
+#### **TEST Files - Covers #1 and #2:**
 
 [T1059.001-MS Word.docm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.001-MS_Word.docm)
 
 [T1059.001-MS Excel.xlsm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.001-MS_Excel.xlsm)
 
-Test VBA Code:
+**Test VBA Code:**
 
 ```jsx
 Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
@@ -150,3 +150,32 @@ Rule {
 	}
 }
 ```
+
+**Trigger(s):**
+
+1. MS Office application launched
+2. MS Office application launches PowerShell process.
+3. PowerShell attempts to run encoded commands.
+
+**Test VBA Code:**
+
+```jsx
+Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
+ 
+Public Sub AutoOpen()
+
+    Dim objWshell1 As Object
+    Set objWshell1 = CreateObject("WScript.Shell")
+    Dim psString As String
+    
+    '1 - VBA Launching PowerShell EncodedCommand
+    psString = "powershell.exe -ExecutionPolicy Bypass -NoExit -EncodedCommand JABTAGUAcgB2AGUAcgAgAD0AIABSAGUAYQBkAC0ASABvAHMAdAAgAC0AUAByAG8AbQBwAHQAIAAnAEUAbgBjAG8AZABlAGQAIABjAG8AbQBtAGEAbgBkACAAcgB1AG4ALgAgACAAUAByAGUAcwBzACAARQBuAHQAZQByACcA"
+    MsgBox ("1 - VBA Launching PowerShell EncodedCommand" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+    MsgBox ("Complete.")
+End Sub
+
+```
+
+#### TEST Files - Covers #3**
+
