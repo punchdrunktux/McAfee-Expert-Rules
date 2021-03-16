@@ -151,7 +151,6 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
-			Include -nt_access "CREATE"
 			Include OBJECT_NAME {-v "cscript.exe"}
 			Include OBJECT_NAME {-v "wscript.exe"}
 		}
