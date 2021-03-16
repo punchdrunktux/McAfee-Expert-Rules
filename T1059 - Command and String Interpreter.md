@@ -2,6 +2,16 @@
 
 Malicious MS Office documents may attempt to launch PowerShell through embedded VBA code to execute PowerShell commands.  
 
+**NOTES:**
+
+- Each rule has been tested in a "clean" lab environment but will need to be tweaked for environmentental factors
+
+- Tests include both the MS Office VBA code and a MS Office file for testing.  If you don't trust my files create a new MS Office file with the provided VBA code.
+
+- McAfee ENS should fire a new alert for each test.  Some files include mulitple tests but will be separated by a MessageBox popup telling you what is being tested, along with an added timer pause during execution.
+
+  
+
 ## 1. MS Office Launching PowerShell DownloadString / DownloadFile
 
 **Description:**  VBA-enabled MS Office files are regularly leveraged to by adversaries to use PowerShell to download malicious code to execute the second stage of the attack.  
