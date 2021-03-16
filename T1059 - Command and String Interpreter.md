@@ -71,9 +71,9 @@ Rule {
 
 #### **TEST Files - Covers #1 and #2:**
 
-[T1059.001-MS Word.docm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.001-MS_Word.docm)
+[T1059.001-MS Word.docm](Test%20Files/T1059.001-MS Word.docm)
 
-[T1059.001-MS Excel.xlsm](T1059%20-%20Command%20and%20String%20Interpreter%200331fa36083e44558e51e2755796c033/T1059.001-MS_Excel.xlsm)
+[T1059.001-MS Excel.xlsm](Test%20Files/T1059.001-MS_Excel.xlsm)
 
 **Test VBA Code:**
 
