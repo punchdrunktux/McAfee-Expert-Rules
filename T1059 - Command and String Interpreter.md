@@ -71,7 +71,7 @@ Rule {
 
 #### **TEST Files - Covers #1 and #2:**
 
-[T1059.001-MS Word.docm](Test%20Files/T1059.001-MS Word.docm)
+[T1059.001-MS Word.docm](Test%20Files/T1059.001-MS_Word.docm)
 
 [T1059.001-MS Excel.xlsm](Test%20Files/T1059.001-MS_Excel.xlsm)
 
@@ -79,7 +79,7 @@ Rule {
 
 ```jsx
 Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
- 
+
 Public Sub AutoOpen()
 
     Dim objWshell1 As Object
