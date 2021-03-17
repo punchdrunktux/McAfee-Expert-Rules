@@ -134,9 +134,9 @@ Public Sub AutoOpen()
 End Sub
 ```
 
-## 3. MS Office Launching Other Scripts
+## 3. MS Office Launching Scripts Directly Through cscript/wscript
 
-**Description:**  VBA-enabled MS Office files may attempt to launch JavaScript and VBScript.
+**Description:**  VBA-enabled MS Office files may attempt to launch JavaScript and VBScript directly.
 
 **MITRE ATT&CK Technique:** T1059.005, T1059.007
 
@@ -190,6 +190,112 @@ Rule {
 End Sub
 
 ```
+
+
+
+## 4. MS Office Launching Scripts through CMD or PowerShell then cscript/wscript
+
+
+
+**Description:**  VBA-enabled MS Office files may attempt to launch JavaScript and VBScript directly.
+
+**MITRE ATT&CK Technique:** T1059.005, T1059.007
+
+```jsx
+Rule {
+	Initiator {
+		Match PROCESS {
+			Include OBJECT_NAME {-v "winword.exe"}
+			Include OBJECT_NAME {-v "excel.exe"}
+			Include OBJECT_NAME {-v "powerpoint.exe"}
+		}
+	}
+	Target {
+		Match PROCESS {
+      Include -access "CREATE"
+			Include OBJECT_NAME {-v "cmd.exe"}
+			Include OBJECT_NAME {-v "powershell.exe"}
+		}
+		Next_Process_Behavior {
+			Target {
+				Match PROCESS {
+					Include -access "CREATE"
+					Include OBJECT_NAME {-v "cscript.exe"}
+					Include OBJECT_NAME {-v "wscript.exe"}
+
+				}
+			}
+		}
+	}
+}
+```
+
+**Trigger(s):**
+
+1. MS Office application launched
+2. MS Office application launches PowerShell or CMD process.
+3. Script is launched through cscript.exe or wscript.exe
+
+**Test VBA Code:**
+
+```jsx
+ Public Sub AutoOpen()
+    Dim objWshell1 As Object
+    Set objWshell1 = CreateObject("WScript.Shell")
+    Dim psString As String
+    
+    '1 - VBA Launching VBScript via cscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed VBS via CSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "cscript.exe c:\\windows\\temp\\test.vbs"
+        
+    MsgBox ("1 - VBA Launching VBScript via cscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+
+     '2 - VBA Launching VBScript via wscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed VBS via WSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "wscript.exe c:\\windows\\temp\\test.vbs"
+    MsgBox ("2 - VBA Launching VBScript via wscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+    
+    '3 - VBA Launching VBScript then cmd.exe and then wscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed CMD.exe and then VBS via WSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "cmd.exe /c wscript.exe c:\\windows\\temp\\test.vbs"
+    MsgBox ("3 - VBA Launching VBScript then cmd.exe and then wscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+    
+    '4 - VBA Launching VBScript then cmd.exe and then cscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed CMD.exe and then VBS via WSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "cmd.exe /c cscript.exe c:\\windows\\temp\\test.vbs"
+    MsgBox ("4 - VBA Launching VBScript then cmd.exe and then cscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+    
+    '5 - VBA Launching VBScript then powershell.exe and then cscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed CMD.exe and then VBS via WSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "powershell.exe -c cscript.exe c:\\windows\\temp\\test.vbs"
+    MsgBox ("5 - VBA Launching VBScript then powershell.exe and then cscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+    
+     '6 - VBA Launching VBScript then powershell.exe and then wscript
+    psString = "cmd.exe /c echo MsgBox(""Successfully Executed CMD.exe and then VBS via WSCRIPT"") >c:\\windows\\temp\\test.vbs "
+    objWshell1.Exec (psString)
+    psString = "powershell.exe -c wscript.exe c:\\windows\\temp\\test.vbs"
+    MsgBox ("6 - VBA Launching VBScript then powershell.exe and then wscript" + Chr(13) & Chr(10) + "MITRE ATT&CK: T1059.007/009" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10))
+    objWshell1.Exec (psString)
+        
+End Sub
+
+
+
+```
+
+
+
+
 
 #### TEST Files - Covers #3
 
