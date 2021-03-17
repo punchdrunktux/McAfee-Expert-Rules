@@ -3,6 +3,6 @@
 Repository to work on McAfee Expert Rules
 
 ```
-![alt text](/mitre-attack.svg)
+<img src=mitre-attack.svg>
 ```
 
