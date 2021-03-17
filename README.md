@@ -3,6 +3,6 @@
 Repository to work on McAfee Expert Rules
 
 ```
-![ATT&CK Coverage](./img/mitre-attack.svg)
+![ATT&CK Coverage](./img/mitre-attack.png)
 ```
 
