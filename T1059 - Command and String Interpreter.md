@@ -29,6 +29,7 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
+			Include -access "CREATE"
 			Include OBJECT_NAME {-v "powershell.exe"}
 			Include PROCESS_CMD_LINE {-v "*DownloadString*"}
 			Include PROCESS_CMD_LINE {-v "*DownloadFile*"}
@@ -62,6 +63,7 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
+			Include -access "CREATE"
 			Include OBJECT_NAME {-v "powershell.exe"}
 			Include PROCESS_CMD_LINE {-v "*-e*"}
 		}
@@ -151,6 +153,7 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
+      Include -access "CREATE"
 			Include OBJECT_NAME {-v "cscript.exe"}
 			Include OBJECT_NAME {-v "wscript.exe"}
 		}
@@ -297,7 +300,7 @@ End Sub
 
 
 
-#### TEST Files - Covers #3
+#### TEST Files - Covers #3 and #4
 
 [T1059.007-T1059.009-MS_Excel.xlsm](Test%20Files/T1059.007-T1059.009-MS_Excel.xlsm)
 
