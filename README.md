@@ -3,7 +3,6 @@
 Repository to work on McAfee Expert Rules
 
 ```
-![Image description](/mitre-attack.svg)
-
+[![ATT&CK Coverage](https://raw.githubusercontent.com/punchdrunktux/McAfee-Expert-Rules/main/mitre-attack.svg)]
 ```
 
