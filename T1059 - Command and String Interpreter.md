@@ -35,6 +35,7 @@ Rule {
 			Include PROCESS_CMD_LINE {-v "*DownloadFile*"}
 			Include PROCESS_CMD_LINE {-v "*DownloadData*"}
 			Include PROCESS_CMD_LINE {-v "*iwr*"}
+      Include PROCESS_CMD_LINE {-v "*invoke-webrequest*"}
 		}
 	}
 }
