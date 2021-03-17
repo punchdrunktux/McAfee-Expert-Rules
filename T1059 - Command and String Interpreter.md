@@ -4,9 +4,9 @@ Malicious MS Office documents may attempt to launch PowerShell through embedded 
 
 **NOTES:**
 
-- Each rule has been tested in a "clean" lab environment but will need to be tweaked for environmentental factors
+- Each rule has been tested in a "clean" lab environment but will need to be tweaked for production environmentental factors
 
-- Tests include both the MS Office VBA code and a MS Office file for testing.  If you don't trust my files create a new MS Office file with the provided VBA code.
+- Tests include both the MS Office VBA code and a MS Office file for testing.  If you don't trust my files create a new MS Office macro file with the provided VBA code.
 
 - McAfee ENS should fire a new alert for each test.  Some files include mulitple tests but will be separated by a MessageBox popup telling you what is being tested, along with an added timer pause during execution.
 
@@ -189,11 +189,9 @@ Rule {
         
 End Sub
 
-
-
 ```
 
-#### TEST Files - Covers #3**
+#### TEST Files - Covers #3
 
 [T1059.007-T1059.009-MS_Excel.xlsm](Test%20Files/T1059.007-T1059.009-MS_Excel.xlsm)
 
