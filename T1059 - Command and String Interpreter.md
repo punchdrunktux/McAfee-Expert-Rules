@@ -88,6 +88,8 @@ Rule {
 
 [T1059.001-MS Excel.xlsm](Test%20Files/T1059.001-MS_Excel.xlsm)
 
+[T1059.001-MS PowerPoint.pptm](Test%20Files/T1059.001-MS%20PowerPoint.pptm)
+
 **Test VBA Code:**
 
 ```jsx
