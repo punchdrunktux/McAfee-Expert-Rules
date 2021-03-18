@@ -25,6 +25,7 @@ Rule {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
 			Include OBJECT_NAME {-v "powerpoint.exe"}
+      Include OBJECT_NAME {-v "outlook.exe"}
 		}
 	}
 	Target {
@@ -60,6 +61,7 @@ Rule {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
 			Include OBJECT_NAME {-v "powerpoint.exe"}
+      Include OBJECT_NAME {-v "outlook.exe"}
 		}
 	}
 	Target {
@@ -150,7 +152,8 @@ Rule {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
 			Include OBJECT_NAME {-v "powerpoint.exe"}
-		}
+      Include OBJECT_NAME {-v "outlook.exe"}
+    }
 	}
 	Target {
 		Match PROCESS {
@@ -212,7 +215,8 @@ Rule {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
 			Include OBJECT_NAME {-v "powerpoint.exe"}
-		}
+      Include OBJECT_NAME {-v "outlook.exe"}
+    }
 	}
 	Target {
 		Match PROCESS {
