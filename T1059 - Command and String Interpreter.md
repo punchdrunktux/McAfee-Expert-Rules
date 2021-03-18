@@ -24,7 +24,7 @@ Rule {
 		Match PROCESS {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpoint.exe"}
+			Include OBJECT_NAME {-v "powerpnt.exe"}
       Include OBJECT_NAME {-v "outlook.exe"}
 		}
 	}
@@ -60,7 +60,7 @@ Rule {
 		Match PROCESS {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpoint.exe"}
+			Include OBJECT_NAME {-v "powerpnt.exe"}
       Include OBJECT_NAME {-v "outlook.exe"}
 		}
 	}
@@ -68,7 +68,7 @@ Rule {
 		Match PROCESS {
 			Include -access "CREATE"
 			Include OBJECT_NAME {-v "powershell.exe"}
-			Include PROCESS_CMD_LINE {-v "*-e*"}
+			Include PROCESS_CMD_LINE {-v "*-encode*"}
 		}
 	}
 }
@@ -153,7 +153,7 @@ Rule {
 		Match PROCESS {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpoint.exe"}
+			Include OBJECT_NAME {-v "powerpnt.exe"}
       Include OBJECT_NAME {-v "outlook.exe"}
     }
 	}
@@ -216,7 +216,7 @@ Rule {
 		Match PROCESS {
 			Include OBJECT_NAME {-v "winword.exe"}
 			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpoint.exe"}
+			Include OBJECT_NAME {-v "powerpnt.exe"}
       Include OBJECT_NAME {-v "outlook.exe"}
     }
 	}
