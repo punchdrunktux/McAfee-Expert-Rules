@@ -430,3 +430,49 @@ Rule {
 	
 }
 ```
+Test VBA Code
+```
+	
+
+Public Sub AutoOpen()
+    Dim objWshell1 As Object
+    Set objWshell1 = CreateObject("WScript.Shell")
+    Dim psString As String
+    
+    '1 - VBA Launching VBScript via cscript
+    psString = "rundll32.exe fakedll.dll,Main"
+        
+    MsgBox ("1 - Rundll32.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1055.001" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    objWshell1.Exec (psString)
+
+
+
+  '2 - VBA Launching dllhost.exe
+    psString = "dllhost.exe /Proccessid:fake"
+        
+    MsgBox ("2 - Dllhost.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1546.015" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    objWshell1.Exec (psString)
+
+
+
+
+  '3 - VBA Launching regedit for execution or persistence
+    psString = "regedit /E c:\fakefile.reg NOWHERE"
+        
+    MsgBox ("3 - regedit.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1096" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    objWshell1.Exec (psString)
+
+
+
+
+  '4 - VBA Launching regedit for execution
+    psString = "certutil.exe -urlcache -split -f http:/127.0.0.1/file file.exe"
+        
+    MsgBox ("4 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    objWshell1.Exec (psString)
+    
+    
+
+    
+End Sub
+```
