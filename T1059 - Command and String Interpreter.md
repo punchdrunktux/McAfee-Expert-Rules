@@ -165,8 +165,12 @@ Rule {
 	Target {
 		Match PROCESS {
       Include -access "CREATE"
-			Include OBJECT_NAME {-v "cscript.exe"}
-			Include OBJECT_NAME {-v "wscript.exe"}
+			# wscript.exe
+			Include DESCRIPTION {-v "Microsoft ® Console Based Script Host"}
+			#cscript.exe
+			Include DESCRIPTION {-v "Microsoft ® Windows Based Script Host")
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
+ 
 		}
 	}
 }
