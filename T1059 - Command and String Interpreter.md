@@ -381,7 +381,7 @@ End Sub
 
 **Description:**  VBA-enabled MS Office files may attempt to use Windows binaries for execution or persistence.
 
-**MITRE ATT&CK Technique:** <insert tactics>
+**MITRE ATT&CK Technique:** T1055-T1546-T1105
 
 ```jsx
 Rule {
@@ -429,7 +429,6 @@ Rule {
 ```
 Test VBA Code
 ```
-
 Public Sub AutoOpen()
     Dim objWshell1 As Object
     Set objWshell1 = CreateObject("WScript.Shell")
@@ -440,8 +439,6 @@ Public Sub AutoOpen()
         
     MsgBox ("1 - Rundll32.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1055.001" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
     objWshell1.Exec (psString)
-
-
 
   '2 - VBA Launching dllhost.exe
     psString = "dllhost.exe /Proccessid:fake"
@@ -456,17 +453,12 @@ Public Sub AutoOpen()
     MsgBox ("3 - bitsadmin.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
     objWshell1.Exec (psString)
     
-    
 
   '4 - VBA Launching certutil.exe for execution
     psString = "certutil.exe -urlcache -split -f http:/127.0.0.1/file file.exe"
         
     MsgBox ("4 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
     objWshell1.Exec (psString)
-    
-    
-
-
     
 End Sub
 
