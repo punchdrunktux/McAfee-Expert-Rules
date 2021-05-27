@@ -20,6 +20,7 @@ Malicious MS Office documents may attempt to launch PowerShell through embedded 
 
 ```jsx
 Rule {
+	Initiator {
 		Match PROCESS {
 			#MS Word 
 			Include DESCRIPTION {-v "Microsoft Word"}
