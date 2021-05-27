@@ -70,7 +70,9 @@ Rule {
 	Target {
 		Match PROCESS {
 			Include -access "CREATE"
-			Include OBJECT_NAME {-v "powershell.exe"}
+			Include DESCRIPTION {-v "Windows PowerShell"}
+			Include DESCRIPTION {-v "Windows PowerShell ISE"}
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
 			Include PROCESS_CMD_LINE {-v "*-encode*"}
 		}
 	}
