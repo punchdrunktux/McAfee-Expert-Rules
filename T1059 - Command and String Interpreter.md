@@ -197,13 +197,14 @@ Rule {
 			# wscript.exe
 			Include DESCRIPTION {-v "Microsoft ® Console Based Script Host"}
 			#cscript.exe
-			Include DESCRIPTION {-v "Microsoft ® Windows Based Script Host")
+			Include DESCRIPTION {-v "Microsoft ® Windows Based Script Host"}
 			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
 			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
  
 		}
 	}
 }
+
 ```
 
 **Trigger(s):**
