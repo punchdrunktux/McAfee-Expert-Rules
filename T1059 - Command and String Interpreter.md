@@ -20,12 +20,18 @@ Malicious MS Office documents may attempt to launch PowerShell through embedded 
 
 ```jsx
 Rule {
-	Initiator {
 		Match PROCESS {
-			Include OBJECT_NAME {-v "winword.exe"}
-			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpnt.exe"}
-      Include OBJECT_NAME {-v "outlook.exe"}
+			#MS Word 
+			Include DESCRIPTION {-v "Microsoft Word"}
+			#MS Excel
+			Include DESCRIPTION {-v "Microsoft Excel"}
+			#MS PowerPoint
+			Include DESCRIPTION {-v "Microsoft PowerPoint"}
+			#MS Outlook
+			Include DESCRIPTION {-v "Microsoft Outlook"}
+			
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+
 		}
 	}
 	Target {
@@ -61,10 +67,17 @@ Rule {
 Rule {
 	Initiator {
 		Match PROCESS {
-			Include OBJECT_NAME {-v "winword.exe"}
-			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpnt.exe"}
-      Include OBJECT_NAME {-v "outlook.exe"}
+			#MS Word 
+			Include DESCRIPTION {-v "Microsoft Word"}
+			#MS Excel
+			Include DESCRIPTION {-v "Microsoft Excel"}
+			#MS PowerPoint
+			Include DESCRIPTION {-v "Microsoft PowerPoint"}
+			#MS Outlook
+			Include DESCRIPTION {-v "Microsoft Outlook"}
+			
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+
 		}
 	}
 	Target {
@@ -156,11 +169,18 @@ End Sub
 Rule {
 	Initiator {
 		Match PROCESS {
-			Include OBJECT_NAME {-v "winword.exe"}
-			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpnt.exe"}
-      Include OBJECT_NAME {-v "outlook.exe"}
-    }
+			#MS Word 
+			Include DESCRIPTION {-v "Microsoft Word"}
+			#MS Excel
+			Include DESCRIPTION {-v "Microsoft Excel"}
+			#MS PowerPoint
+			Include DESCRIPTION {-v "Microsoft PowerPoint"}
+			#MS Outlook
+			Include DESCRIPTION {-v "Microsoft Outlook"}
+			
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+
+		}
 	}
 	Target {
 		Match PROCESS {
@@ -223,11 +243,18 @@ End Sub
 Rule {
 	Initiator {
 		Match PROCESS {
-			Include OBJECT_NAME {-v "winword.exe"}
-			Include OBJECT_NAME {-v "excel.exe"}
-			Include OBJECT_NAME {-v "powerpnt.exe"}
-      Include OBJECT_NAME {-v "outlook.exe"}
-    }
+			#MS Word 
+			Include DESCRIPTION {-v "Microsoft Word"}
+			#MS Excel
+			Include DESCRIPTION {-v "Microsoft Excel"}
+			#MS PowerPoint
+			Include DESCRIPTION {-v "Microsoft PowerPoint"}
+			#MS Outlook
+			Include DESCRIPTION {-v "Microsoft Outlook"}
+			
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+
+		}
 	}
 	Target {
 		Match PROCESS {
