@@ -372,3 +372,61 @@ End Sub
 
 [T1059.007-T1059.009-MS_Word.docm](Test%20Files/T1059.007-T1059.009-MS_Word.docm)
 
+
+
+
+## 5. MS Office Launching Other Binaries For Malicious Execution, Persistence or Others Means.
+
+
+
+**Description:**  VBA-enabled MS Office files may attempt to use Windows binaries for execution or persistence.
+
+**MITRE ATT&CK Technique:** <insert tactics>
+
+```jsx
+Rule {
+	Initiator {
+		Match PROCESS {
+			#MS Word 
+			Include DESCRIPTION {-v "Microsoft Word"}
+			#MS Excel
+			Include DESCRIPTION {-v "Microsoft Excel"}
+			#MS PowerPoint
+			Include DESCRIPTION {-v "Microsoft PowerPoint"}
+			#MS Outlook
+			Include DESCRIPTION {-v "Microsoft Outlook"}
+			
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
+		}
+	}
+	Target {
+		Match PROCESS {
+      Include -access "CREATE"
+			#rundll32.exe
+			Include DESCRIPTION {-v "Windows host process (Rundll32)"}
+			#dllhost.exe
+			Include DESCRIPTION {-v "COM Surrogate"}
+			#svchost.exe
+			Include DESCRIPTION {-v "Host Process for Windows Services"}
+			#regsvr32.exe
+			Include DESCRIPTION {-v "Microsoft(C) Register Server"}
+			#bitsadmin.exe
+			Include DESCRIPTION {-v "BITS administration utility"}
+			
+			#CertUtil.exe
+			Include DESCRIPTION {-v "certutil.exe"}
+			
+			#csc.exe
+			Include DESCRIPTION {-v "Visual C# Command Line Compiler"}
+		
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
+			
+		}
+		
+	}
+		
+	
+}
+```
