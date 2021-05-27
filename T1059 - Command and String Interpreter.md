@@ -31,7 +31,10 @@ Rule {
 			#MS Outlook
 			Include DESCRIPTION {-v "Microsoft Outlook"}
 			
-			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
+
+
 
 		}
 	}
@@ -40,6 +43,7 @@ Rule {
 			Include -access "CREATE"
 			Include DESCRIPTION {-v "Windows PowerShell"}
 			Include DESCRIPTION {-v "Windows PowerShell ISE"}
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
 			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
  
 			Include PROCESS_CMD_LINE {-v "*DownloadString*"}
@@ -77,7 +81,9 @@ Rule {
 			#MS Outlook
 			Include DESCRIPTION {-v "Microsoft Outlook"}
 			
-			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
+
 
 		}
 	}
@@ -86,7 +92,8 @@ Rule {
 			Include -access "CREATE"
 			Include DESCRIPTION {-v "Windows PowerShell"}
 			Include DESCRIPTION {-v "Windows PowerShell ISE"}
-			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
 			Include PROCESS_CMD_LINE {-v "*-encode*"}
 		}
 	}
@@ -179,7 +186,8 @@ Rule {
 			#MS Outlook
 			Include DESCRIPTION {-v "Microsoft Outlook"}
 			
-			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
 
 		}
 	}
@@ -190,6 +198,7 @@ Rule {
 			Include DESCRIPTION {-v "Microsoft ® Console Based Script Host"}
 			#cscript.exe
 			Include DESCRIPTION {-v "Microsoft ® Windows Based Script Host")
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
 			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
  
 		}
@@ -253,8 +262,8 @@ Rule {
 			#MS Outlook
 			Include DESCRIPTION {-v "Microsoft Outlook"}
 			
-			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"} 
-
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Corporation"} 
+			Include CERT_NAME_CHAINED {-v "C=US, S=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows"}
 		}
 	}
 	Target {
