@@ -463,3 +463,6 @@ Public Sub AutoOpen()
 End Sub
 
 ```
+#### **TEST Files - Covers #5:**
+
+[T1059.001-MS Word.docm](Test%20Files/T1059.001-MS_Word.docm)
