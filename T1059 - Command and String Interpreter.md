@@ -407,8 +407,6 @@ Rule {
 			Include DESCRIPTION {-v "Windows host process (Rundll32)"}
 			#dllhost.exe
 			Include DESCRIPTION {-v "COM Surrogate"}
-			#svchost.exe
-			Include DESCRIPTION {-v "Host Process for Windows Services"}
 
 			#bitsadmin.exe
 			Include DESCRIPTION {-v "BITS administration utility"}
