@@ -193,7 +193,8 @@ Rule {
 	}
 	Target {
 		Match PROCESS {
-      Include -access "CREATE"
+ 			Include -access "CREATE"
+
 			# wscript.exe
 			Include DESCRIPTION {-v "Microsoft ® Console Based Script Host"}
 			#cscript.exe
