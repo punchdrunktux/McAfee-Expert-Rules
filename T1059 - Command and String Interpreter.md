@@ -407,7 +407,10 @@ Rule {
 			Include DESCRIPTION {-v "Windows host process (Rundll32)"}
 			#dllhost.exe
 			Include DESCRIPTION {-v "COM Surrogate"}
-
+	
+      #java.exe
+      Include DESCRIPTION {-v "Java(TM) Platform SE binary"}
+      
 			#bitsadmin.exe
 			Include DESCRIPTION {-v "BITS administration utility"}
 			
@@ -460,6 +463,11 @@ Public Sub AutoOpen()
     MsgBox ("4 - certutil " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
     objWshell1.Exec (psString)
     
+      '5 - MS Office launching java.exe for JAR execution
+    psString = "java.exe c:\windows\temp\nofile.jar"
+        
+    MsgBox ("5 - java.exe " + Chr(13) & Chr(10) + "MITRE ATT&CK: T1105 " + Chr(13) & Chr(10) + Chr(13) & Chr(10) + "Command: " + psString + Chr(13) & Chr(10) + "NOTE: you will see an error!")
+    objWshell1.Exec (psString)
 End Sub
 
 ```
